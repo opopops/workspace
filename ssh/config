@@ -1,0 +1,7 @@
+Include include/config
+
+Host *
+  user germain
+  IdentityFile ~/.ssh/id_rsa
+  ServerAliveInterval 60
+  ServerAliveCountMax 2

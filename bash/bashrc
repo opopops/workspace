@@ -1,0 +1,28 @@
+
+export PATH="/usr/local/sbin:$PATH"
+
+# --- env
+if [ -f ~/.bashenv ]; then
+   source ~/.bashenv
+fi
+
+# --- aliases
+if [ -f ~/.bash_aliases ]; then
+   source ~/.bash_aliases
+fi
+
+# --- completion
+if [ -f /usr/local/etc/bash_completion ]; then
+   source /usr/local/etc/bash_completion
+fi
+
+# --- prompt
+export PS1="\[\033[36m\]\u\[\033[m\]@\[\033[32m\]\h:\[\033[33;1m\]\w\[\033[m\]\$ "
+export CLICOLOR=1
+export LSCOLORS=ExFxBxDxCxegedabagacad
+
+if [ -f "$(brew --prefix)/opt/bash-git-prompt/share/gitprompt.sh" ]; then
+  __GIT_PROMPT_DIR=$(brew --prefix)/opt/bash-git-prompt/share
+  GIT_PROMPT_ONLY_IN_REPO=1
+  source "$(brew --prefix)/opt/bash-git-prompt/share/gitprompt.sh"
+fi

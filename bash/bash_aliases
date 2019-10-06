@@ -1,0 +1,47 @@
+
+### system
+#########################
+alias bashrc="source ${HOME}/.bashrc"
+alias ll="ls -la"
+
+### workspace
+#########################
+alias cdgit="cd ${HOME}/Workspace/git"
+
+### klaxoon
+#########################
+# --- vpn
+alias klx-vpn-connect="globalprotect connect --portal access.corp.klaxoon.com --username germain.gueutier@klaxoon.com"
+alias klx-vpn-disconnect="globalprotect disconnect"
+
+# --- workspace
+alias klx-workspace-ssh="ssh workspace"
+alias klx-workspace-mount="sshfs \
+  -o allow_other \
+  -o cache=yes \
+  -o auto_cache \
+  -o cache_timeout=115200 \
+  -o attr_timeout=115200 \
+  -o kernel_cache \
+  -o compression=no \
+  -o Ciphers=aes128-ctr \
+  -o reconnect \
+  -o ServerAliveInterval=10,ServerAliveCountMax=3 \
+  workspace:/home/p-klaxoon ${HOME}/sshfs/workspace"
+alias klx-workspace-umount="sudo umount -l ${HOME}/sshfs/workspace"
+
+# --- smartbuilder
+alias klx-smartbuilder-ssh="ssh smartbuilder"
+alias klx-smartbuilder-mount="sshfs \
+  -o allow_other \
+  -o cache=yes \
+  -o auto_cache \
+  -o cache_timeout=115200 \
+  -o attr_timeout=115200 \
+  -o kernel_cache \
+  -o compression=no \
+  -o Ciphers=aes128-ctr \
+  -o reconnect \
+  -o ServerAliveInterval=10,ServerAliveCountMax=3 \
+  smartbuilder:/var/lib/build/ggueutier ${HOME}/sshfs/smartbuilder"
+alias klx-smartbuilder-umount="sudo umount -l ${HOME}/sshfs/smartbuilder"
